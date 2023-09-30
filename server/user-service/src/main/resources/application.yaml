@@ -1,0 +1,82 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: user-service
+  config:
+    import: "optional:configserver:http://config-service:8088 "
+  datasource:
+    url: jdbc:postgresql://localhost:2801/product2
+    username: postgres
+    password: lct220401
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+  hibernate:
+    ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+      hibernate.show_sql: true
+      hibernate.use_sql_comments: true
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: bapcompany2023@gmail.com
+    password: mtfarorwdtllbcpz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  web:
+    resources:
+      static-locations:
+        - file:src/main/resources/static/
+        - classpath:/static/
+    servlet:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 20MB
+
+kltn:
+  jwtCookieName: bezkoder
+  jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
+  jwtExpirationMs: 86400000
+  domain: https://ecommerce-api.bappartners.com
+
+
+
+#bap:
+#  ecommerce:
+#    jwtCookieName: bezkoder
+#    jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
+#    jwtExpirationMs: 86400000
+#    domain: https://ecommerce-api.bappartners.com
+
+backend:
+  security:
+    jwt:
+      privateKey: ajsdasdjkasdajsdlkajskdljaklsjdkajsdkjaskdjaklsjdklajsdlkjasldkj
+      RefreshExpirationMs: 2592000000
+
+image:
+  dir:
+    profile: ${user.dir}/user-service/src/main/resources/static/images/profile
+    product: ${user.dir}/user-service/src/main/resources/static/images/product
+    rating: ${user.dir}/user-service/src/main/resources/static/images/rating
+video:
+  dir:
+    product: ${user.dir}/user-service/src/main/resources/static/videos/product
+    rating: ${user.dir}/user-service/src/main/resources/static/videos/rating
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
+
+
+
+

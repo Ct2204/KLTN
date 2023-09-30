@@ -1,0 +1,12 @@
+server:
+  port: 9898
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
