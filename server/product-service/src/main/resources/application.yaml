@@ -1,0 +1,73 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: product-service
+  config:
+    import: "optional:configserver:http://config-service:8088"
+  datasource:
+    url: jdbc:postgresql://localhost:2801/product2
+    username: postgres
+    password: lct220401
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    show-sql: true
+  hibernate:
+    ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+      hibernate.show_sql: true
+      hibernate.use_sql_comments: true
+
+#  kafka:
+#    bootstrap-servers: kafka:29092
+#    consumer:
+#      value-serializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+#      auto-offset-reset: earliest
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: lecongthuong2204@gmail.com
+    password: rdggsfnlaxfxzqny
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  web:
+    resources:
+      static-locations:
+        - file:src/main/resources/static/
+        - classpath:/static/
+    servlet:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 20MB
+
+bap:
+  ecommerce:
+    jwtCookieName: bezkoder
+    jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
+    jwtExpirationMs: 86400000
+    RefreshExpirationMs: 2592000000
+    domain: https://ecommerce-api.bappartners.com
+
+image:
+  dir:
+    profile: ${user.dir}/product-service/src/main/resources/static/images/profile
+    product: ${user.dir}/product-service/src/main/resources/static/images/product
+    rating: ${user.dir}/product-service/src/main/resources/static/images/rating
+video:
+  dir:
+    product: ${user.dir}/product-service/src/main/resources/static/videos/product
+    rating: ${user.dir}/product-service/src/main/resources/static/videos/rating
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka/
+
+
