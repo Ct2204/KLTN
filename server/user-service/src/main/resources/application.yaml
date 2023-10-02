@@ -44,7 +44,7 @@ kltn:
   jwtCookieName: bezkoder
   jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
   jwtExpirationMs: 86400000
-  domain: https://ecommerce-api.bappartners.com
+  domain: https://ecommerce-api.com
 
 
 

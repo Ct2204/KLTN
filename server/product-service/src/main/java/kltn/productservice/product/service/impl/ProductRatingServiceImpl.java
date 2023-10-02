@@ -61,7 +61,7 @@ public class ProductRatingServiceImpl implements ProductRatingService {
     @Value("${video.dir.rating}")
     private String videoDirLocation;
 
-    @Value("${bap.ecommerce.domain}")
+    @Value("${kltn.domain}")
     private String domain;
 
     @Autowired

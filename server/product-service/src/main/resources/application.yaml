@@ -47,13 +47,12 @@ spring:
         max-file-size: 20MB
         max-request-size: 20MB
 
-bap:
-  ecommerce:
-    jwtCookieName: bezkoder
-    jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
-    jwtExpirationMs: 86400000
-    RefreshExpirationMs: 2592000000
-    domain: https://ecommerce-api.bappartners.com
+kltn:
+  jwtCookieName: bezkoder
+  jwtSecret: aG9hbmcgYW5oIEJBUAwfewbfewnfncieniewbvenneceibvneiwvewviewnnwevn==
+  jwtExpirationMs: 86400000
+  RefreshExpirationMs: 2592000000
+  domain: https://ecommerce-api.com
 
 image:
   dir:

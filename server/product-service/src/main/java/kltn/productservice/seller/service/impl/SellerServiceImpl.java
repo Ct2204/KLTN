@@ -75,7 +75,7 @@ public class SellerServiceImpl implements SellerService {
     @Value("${video.dir.product}")
     private String dirVideoLocation;
 
-    @Value("${bap.ecommerce.domain}")
+    @Value("${kltn.domain}")
     private String domain;
 
     /**

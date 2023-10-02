@@ -45,13 +45,13 @@ public class JwtUtils {
     @Autowired
     private HttpServletResponse response;
 
-    @Value("${bap.ecommerce.jwtSecret}")
+    @Value("${kltn.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${bap.ecommerce.jwtExpirationMs}")
+    @Value("${kltn.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    @Value("${bap.ecommerce.jwtCookieName}")
+    @Value("${kltn.jwtCookieName}")
     private String jwtCookie;
 
     public static String base64Encode(String token) {
