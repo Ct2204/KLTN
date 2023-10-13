@@ -1,5 +1,3 @@
-
-
 package kltn.userservice.security.jwt;
 
 
@@ -42,7 +40,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             "/api/v1/users/send-verification-code",
             "/api/v1/users/confirm-verification-code",
             "/api/v1/users/activate-user",
-            "/api/v1/users/{id}/rating"
+            "/api/v1/users/{id}/rating",
+            "/api/v1/users/change-password"
     };
 
     @Override

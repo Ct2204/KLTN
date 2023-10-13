@@ -1,4 +1,3 @@
-
 package kltn.userservice.user.controller;
 
 
@@ -12,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
 
 @RestController
 @CrossOrigin("*")
@@ -73,25 +74,25 @@ public class UserProfileController {
         return ResponseEntity.status(HttpStatus.OK).body(responseDataDto);
     }
 
-//    /**
-//     * *
-//     * This method handles get a user picture profile by user ID request.
-//     *
-//     * @param id This is an ID of the user is also be an ID of the user profile.
-//     *
-//     * @return The picture of the user.
-//     */
-//    @GetMapping("/get-picture/{id}")
-//    public ResponseEntity<ResponseDataDto> getProfilePictureByUserId(@PathVariable("id") Long id) {
-//        HashMap<String, String> picturePath = new HashMap<>();
-//        picturePath.put("path", this.userProfileService.getProfilePictureByUserId(id));
-//        ResponseDataDto responseDataDto = new ResponseDataDto();
-//        responseDataDto.setStatus(HttpStatus.OK.series().name());
-//        responseDataDto.setCode(HttpStatus.OK.value());
-//        responseDataDto.setMessage("Successfully retrieved all profile picture by user ID!");
-//        responseDataDto.setData(picturePath);
-//        return ResponseEntity.status(HttpStatus.OK).body(responseDataDto);
-//    }
+    /**
+     * *
+     * This method handles get a user picture profile by user ID request.
+     *
+     * @param id This is an ID of the user is also be an ID of the user profile.
+     *
+     * @return The picture of the user.
+     */
+    @GetMapping("/get-picture/{id}")
+    public ResponseEntity<ResponseDataDto> getProfilePictureByUserId(@PathVariable("id") Long id) {
+        HashMap<String, String> picturePath = new HashMap<>();
+        picturePath.put("path", this.userProfileService.getProfilePictureByUserId(id));
+        ResponseDataDto responseDataDto = new ResponseDataDto();
+        responseDataDto.setStatus(HttpStatus.OK.series().name());
+        responseDataDto.setCode(HttpStatus.OK.value());
+        responseDataDto.setMessage("Successfully retrieved all profile picture by user ID!");
+        responseDataDto.setData(picturePath);
+        return ResponseEntity.status(HttpStatus.OK).body(responseDataDto);
+    }
 
     /**
      * *

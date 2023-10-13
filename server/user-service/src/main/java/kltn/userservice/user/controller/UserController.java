@@ -1,12 +1,9 @@
-
 package kltn.userservice.user.controller;
 
 
 import jakarta.validation.Valid;
 import kltn.userservice.common.dto.ResponseDto;
-import kltn.userservice.user.dto.ConfirmLoginDto;
-import kltn.userservice.user.dto.ResponseDataDto;
-import kltn.userservice.user.dto.UserDto;
+import kltn.userservice.user.dto.*;
 import kltn.userservice.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +27,7 @@ public class UserController {
      * @return A message.
      */
     @PostMapping("send-verification-code")
-    public ResponseEntity<ResponseDto> sendVerificationCode(@RequestHeader String email) {
+    public ResponseEntity<ResponseDto> sendVerificationCode(@RequestBody EmailDto email) {
         this.userService.sendVerificationCode(email);
         ResponseDto responseDto = new ResponseDto();
         responseDto.setStatus(HttpStatus.OK.series().name());
@@ -48,7 +45,7 @@ public class UserController {
      * @return The ID of the user.
      */
     @PostMapping("activate-user")
-    public ResponseEntity<ResponseDto> confirmVerificationCodeAndActiveUser(@RequestHeader String verificationCode) {
+    public ResponseEntity<ResponseDto> confirmVerificationCodeAndActiveUser(@RequestBody VerificationCodeDto verificationCode) {
         this.userService.confirmVerificationCodeAndActiveUser(verificationCode);
         ResponseDto responseDto = new ResponseDto();
         responseDto.setStatus(HttpStatus.OK.series().name());
@@ -66,7 +63,7 @@ public class UserController {
      * @return The email of the user.
      */
     @PostMapping("confirm-change-password")
-    public ResponseDataDto confirmChangePasswordByVerificationCode(@RequestHeader String verificationCode) {
+    public ResponseDataDto confirmChangePasswordByVerificationCode(@RequestBody @Valid VerificationCodeDto verificationCode) {
         ResponseDataDto responseDataDto = new ResponseDataDto();
         responseDataDto.setStatus(HttpStatus.OK.series().name());
         responseDataDto.setCode(HttpStatus.OK.value());
@@ -88,7 +85,7 @@ public class UserController {
      */
     @PatchMapping("change-password")
     public ResponseEntity<ResponseDto> changePassword(@RequestHeader String email,
-                                                 @RequestBody @Valid ConfirmLoginDto confirmLoginDto) {
+                                                 @RequestBody ConfirmLoginDto confirmLoginDto) {
         this.userService.updatePassword(email, confirmLoginDto);
         ResponseDto responseDto = new ResponseDto();
         responseDto.setStatus(HttpStatus.OK.series().name());

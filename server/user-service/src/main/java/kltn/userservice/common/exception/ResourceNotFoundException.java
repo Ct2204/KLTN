@@ -1,4 +1,3 @@
-
 package kltn.userservice.common.exception;
 
 public class ResourceNotFoundException extends RuntimeException {

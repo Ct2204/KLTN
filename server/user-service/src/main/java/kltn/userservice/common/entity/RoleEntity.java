@@ -1,4 +1,3 @@
-
 package kltn.userservice.common.entity;
 
 import jakarta.persistence.Column;

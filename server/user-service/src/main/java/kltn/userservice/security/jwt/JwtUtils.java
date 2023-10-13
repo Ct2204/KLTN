@@ -1,5 +1,3 @@
-
-
 package kltn.userservice.security.jwt;
 
 import kltn.userservice.common.exception.AuthorizeException;

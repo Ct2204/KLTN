@@ -1,5 +1,3 @@
-
-
 package kltn.userservice.user.dto;
 
 import jakarta.validation.constraints.NotBlank;

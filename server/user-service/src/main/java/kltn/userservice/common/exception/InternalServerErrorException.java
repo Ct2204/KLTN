@@ -1,5 +1,3 @@
-
-
 package kltn.userservice.common.exception;
 
 public class InternalServerErrorException extends RuntimeException {

@@ -1,10 +1,8 @@
 package kltn.userservice.common.vo;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum Gender {
-
     Male, Female, Other;
 
     @JsonCreator

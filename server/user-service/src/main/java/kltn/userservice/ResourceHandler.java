@@ -1,12 +1,3 @@
-/*
- * Copyright (c) 2023 BAP IT CO., JSC. All Rights Reserved.
- *
- * BAP GROUP always aim to bring innovation to all products of our customers as well as our own.
- * Technology innovations are influencing life and contribute positive changes to the society,
- * in which BAP-ers always believe and aiming to
- *
- */
-
 package kltn.userservice;
 
 import org.springframework.beans.factory.annotation.Value;

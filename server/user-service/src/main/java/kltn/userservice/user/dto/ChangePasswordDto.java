@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 @Getter
-public class LoginDto {
+public class ChangePasswordDto {
 
     @Email(message = "Invalid email address!" )
     @Size(max = 30, message = "The maximum length for an email is 30 characters")

@@ -1,7 +1,5 @@
 package kltn.userservice.user.service.impl;
 
-
-
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.http.HttpServletRequest;
@@ -226,35 +224,35 @@ public class UserServiceImpl implements UserService {
      * *
      * Generate and set the verification code to the user then send it to email.
      *
-     * @param email This is an email of the user need to be activated.
+     * @param emailDto  This is an email of the user need to be activated.
      * @throws ResourceNotFoundException if could not find the user with that email.
      */
     @Override
-    public void sendVerificationCode(String email) {
+    public void sendVerificationCode(EmailDto emailDto) {
         UserEntity user = this.userRepository
-                .findByEmail(email)
-                .orElseThrow(() -> new ResourceNotFoundException("User with email " + email + " not found!"));
+                .findByEmail(emailDto.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("User with email " + emailDto.getEmail() + " not found!"));
 
         //Generating a random verification code with 6 characters
         String verificationCode = RandomStringUtils.randomNumeric(6);
         user.setVerificationCode(Integer.valueOf(verificationCode));
         this.userRepository.save(user);
         //Sending verification code to user's email
-        sendVerificationEmail(email, verificationCode);
+        sendVerificationEmail(emailDto.getEmail(), verificationCode);
     }
 
     /**
      * *
      * Confirm verification code.
      *
-     * @param verificationCode This is the verification code of the user need to be activated.
+     * @param verificationCodeDto This is the verification code of the user need to be activated.
      * @return An ID of that user.
      * @throws ResourceNotFoundException if user not found.
      */
     @Override
-    public void confirmVerificationCodeAndActiveUser(String verificationCode) {
+    public void confirmVerificationCodeAndActiveUser(VerificationCodeDto verificationCodeDto) {
         UserEntity user = this.userRepository
-                .findByVerificationCode(verificationCode)
+                .findByVerificationCode(verificationCodeDto.getVerificationCode())
                 .orElseThrow(() -> new ResourceNotFoundException("Wrong verification code!"));
         //When confirm password successfully then return ID of the user
         user.setStatus(UserStatusEnum.ACTIVATED);
@@ -271,9 +269,9 @@ public class UserServiceImpl implements UserService {
      * @throws ResourceNotFoundException if user not found.
      */
     @Override
-    public String confirmChangePasswordByVerificationCode(String verificationCode) {
+    public String confirmChangePasswordByVerificationCode(VerificationCodeDto verificationCode) {
         UserEntity user = this.userRepository
-                .findByVerificationCode(verificationCode)
+                .findByVerificationCode(verificationCode.getVerificationCode())
                 .orElseThrow(() -> new ResourceNotFoundException("Wrong verification code!"));
         // When confirm password successfully then return email of the user
         return user.getEmail();

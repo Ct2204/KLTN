@@ -1,4 +1,3 @@
-
 package kltn.userservice.security.model;
 
 import lombok.Getter;

@@ -12,15 +12,15 @@ public interface UserService {
 
     HashMap<String, String> loginByEmailAndPassword(LoginDto loginDto);
 
-    void sendVerificationCode(String email);
+    void sendVerificationCode(EmailDto emailDto);
 
-    void confirmVerificationCodeAndActiveUser(String verificationCode);
+    void confirmVerificationCodeAndActiveUser(VerificationCodeDto verificationCodeDto);
 
     void socialAccountHandler(String email, SocialProvider provider);
 
     void updatePassword(String email, ConfirmLoginDto confirmLoginDto);
 
-    String confirmChangePasswordByVerificationCode(String verificationCode);
+    String confirmChangePasswordByVerificationCode(VerificationCodeDto verificationCodeDto);
 
     void deleteUserById(Long id);
 

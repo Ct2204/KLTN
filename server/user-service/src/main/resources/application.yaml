@@ -1,10 +1,8 @@
-server:
-  port: 8082
 spring:
   application:
     name: user-service
   config:
-    import: "optional:configserver:http://config-service:8088 "
+    import: "optional:configserver:http://localhost:8088 "
   datasource:
     url: jdbc:postgresql://localhost:2801/product2
     username: postgres
@@ -71,10 +69,6 @@ video:
     product: ${user.dir}/user-service/src/main/resources/static/videos/product
     rating: ${user.dir}/user-service/src/main/resources/static/videos/rating
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://service-registry:8761/eureka/
 
 
 

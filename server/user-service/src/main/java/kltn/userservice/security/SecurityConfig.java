@@ -1,4 +1,3 @@
-
 package kltn.userservice.security;
 
 
@@ -64,7 +63,8 @@ public class SecurityConfig {
             "/api/v1/users/send-verification-code",
             "/api/v1/users/confirm-verification-code",
             "/api/v1/users/activate-user",
-            "/api/v1/users/{id}/rating"
+            "/api/v1/users/{id}/rating",
+            "/api/v1/users/change-password"
     };
 
     @Bean
